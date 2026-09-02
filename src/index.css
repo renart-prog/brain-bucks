@@ -1,0 +1,1376 @@
+* {
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+:root {
+  /* KidsMath design system tokens */
+  --bg-primary: #080949;
+  --bg-card: #090730;
+  --bg-elevated: #1f1a69;
+  --bg-surface: #2a2a7d;
+
+  --day-monday: #ff78d8;
+  --day-tuesday: #4fd880;
+  --day-wednesday: #ffd639;
+  --day-thursday: #42a3fe;
+  --day-friday: #b0bdfe;
+  --day-saturday: #ff9248;
+  --day-sunday: #10e79d;
+
+  --success: #10e79d;
+  --info-tag: #00d2ff;
+  --accent-pink: #f300bf;
+  --accent-coral: #ff6d4d;
+  --text-primary: #ffffff;
+  --text-secondary: #9ea8d9;
+
+  /* Spacing scale (4px base) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 40px;
+  --space-4xl: 48px;
+  --space-5xl: 80px;
+
+  /* Corner radius */
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-2xl: 36px;
+  --radius-full: 500px;
+
+  /* Retint Arco's "primary" to accent-pink */
+  --primary-1: #fbdcf6;
+  --primary-2: #f7b8ee;
+  --primary-3: #f38fe4;
+  --primary-4: #f866db;
+  --primary-5: #f640d0;
+  --primary-6: #f300bf;
+  --primary-7: #cc00a2;
+  --primary-8: #a50084;
+  --primary-9: #7e0066;
+  --primary-10: #570048;
+
+  --border-radius-small: 14px;
+  --border-radius-medium: var(--radius-sm);
+  --border-radius-large: var(--radius-md);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  font-size: 17px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.arco-typography-h1,
+.arco-typography-h2,
+.arco-typography-h3,
+.arco-typography-h4,
+.arco-typography-h5,
+.arco-typography-h6 {
+  font-family: 'Gabarito', 'Rubik', sans-serif;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.arco-typography {
+  color: var(--text-primary);
+  word-break: normal;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+.arco-typography,
+.arco-radio-text,
+.arco-tag,
+.arco-btn,
+.arco-input,
+.arco-menu-item {
+  font-size: 1rem;
+  font-family: 'Rubik', sans-serif;
+}
+
+.page-container {
+  flex: 1;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, var(--space-4xl));
+}
+
+/* -- lightweight nav bar for Practice / Collection pages -- */
+.back-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+.back-bar-title {
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-primary) !important;
+}
+
+.tag-demon-num {
+  background: var(--accent-pink) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+/* -- practice questions -- */
+.question-prompt {
+  font-size: 1.08rem;
+  line-height: 1.5;
+  color: var(--text-primary) !important;
+}
+
+/* =========================================================
+   Global dark re-skin of Arco components
+   ========================================================= */
+
+.arco-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+}
+.arco-card-bordered {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.arco-typography-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.arco-input,
+.arco-input-inner-wrapper {
+  background: var(--bg-surface) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: var(--text-primary) !important;
+}
+.arco-input::placeholder {
+  color: var(--text-secondary);
+}
+.arco-input[disabled],
+.arco-input-inner-wrapper-disabled {
+  background: var(--bg-elevated) !important;
+}
+
+.arco-radio-text {
+  color: var(--text-primary) !important;
+}
+
+.arco-progress-line-text {
+  color: var(--text-primary) !important;
+}
+.arco-progress-line-track {
+  background-color: var(--bg-surface) !important;
+}
+
+.arco-modal {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+}
+.arco-modal-content,
+.arco-modal-title {
+  color: var(--text-primary);
+}
+.arco-modal-close-icon {
+  color: var(--text-secondary);
+}
+
+.arco-popover-content,
+.arco-popover-popup-content {
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.arco-popover-arrow {
+  background: var(--bg-elevated) !important;
+}
+
+.arco-btn-primary {
+  background: var(--success) !important;
+  border-color: var(--success) !important;
+  color: var(--bg-primary) !important;
+  font-weight: 700;
+}
+.arco-btn-primary:hover {
+  background: #0dc98a !important;
+  color: var(--bg-primary) !important;
+}
+.arco-btn-secondary {
+  background: var(--bg-surface) !important;
+  color: var(--text-primary) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+.arco-btn-text {
+  color: var(--text-secondary) !important;
+}
+
+.arco-message,
+.arco-message-info,
+.arco-message-success,
+.arco-message-warning,
+.arco-message-error {
+  background-color: var(--bg-elevated) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+.arco-message-content {
+  color: var(--text-primary) !important;
+}
+
+.prize-link {
+  color: var(--info-tag);
+  font-weight: 700;
+}
+
+/* =========================================================
+   Welcome banner + badge row
+   ========================================================= */
+
+.welcome-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xl);
+  background: var(--bg-elevated);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-xl) var(--space-2xl);
+  margin-bottom: var(--space-3xl);
+}
+.welcome-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-shrink: 0;
+}
+.welcome-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+.welcome-title {
+  margin: 0 !important;
+  font-size: 1.4rem !important;
+  color: var(--text-primary) !important;
+}
+.welcome-subtitle {
+  display: block;
+  color: var(--text-secondary) !important;
+  font-size: 0.92rem;
+  margin-top: 2px;
+}
+.welcome-divider {
+  width: 1px;
+  align-self: stretch;
+  background: rgba(255, 255, 255, 0.12);
+  flex-shrink: 0;
+}
+
+.welcome-badges {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-sm);
+  min-width: 0;
+}
+
+.badge-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-xl);
+  overflow-x: auto;
+  max-width: 100%;
+}
+.badge-item {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  cursor: default;
+}
+.badge-img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  display: block;
+}
+
+.badge-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.badge-teaser {
+  color: var(--accent-coral) !important;
+  font-weight: 700;
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+.see-all-btn {
+  border: none;
+  background: transparent;
+  color: var(--info-tag);
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  padding: 0;
+  white-space: nowrap;
+}
+.see-all-btn:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   Section headers + tag pills
+   ========================================================= */
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+.section-title {
+  margin: 0 !important;
+  font-size: 1.6rem !important;
+}
+.tag-pill {
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.tag-pill-teal {
+  background: rgba(16, 231, 157, 0.16);
+  color: var(--success);
+}
+.tag-pill-blue {
+  background: rgba(0, 210, 255, 0.16);
+  color: var(--info-tag);
+}
+
+/* =========================================================
+   Day row ("Math Adventure")
+   ========================================================= */
+
+.day-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-4xl);
+}
+@media (min-width: 640px) {
+  .day-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 900px) {
+  .day-row {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1300px) {
+  .day-row {
+    grid-template-columns: repeat(7, 1fr);
+  }
+}
+
+.day-card {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.day-card:hover {
+  transform: translateY(-3px);
+}
+.day-card-locked {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+.day-card-art {
+  position: relative;
+  height: 130px;
+  overflow: hidden;
+}
+.day-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.day-card-locked .day-card-img {
+  filter: grayscale(0.7);
+}
+.day-card-lock,
+.day-card-check,
+.day-card-retry {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+}
+.day-card-check {
+  background: var(--success);
+  color: #06251b;
+}
+.day-card-retry {
+  background: var(--accent-coral);
+  color: #2a0a02;
+}
+.day-card-footer {
+  padding: var(--space-md);
+}
+.day-card-label {
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.day-card-sub {
+  display: block;
+  color: var(--text-primary) !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+.day-card-count {
+  display: block;
+  color: var(--text-secondary) !important;
+  font-size: 0.7rem;
+  margin-top: 4px;
+}
+.day-card-count-warn {
+  color: var(--accent-coral) !important;
+  font-weight: 700;
+}
+.day-card-count-progress {
+  color: var(--info-tag) !important;
+  font-weight: 700;
+}
+
+.day-card-in-progress {
+  box-shadow: 0 0 0 2px var(--info-tag);
+}
+.day-card-progress-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: var(--info-tag);
+  color: var(--bg-primary);
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+}
+.day-card-progress-track {
+  height: 6px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-top: 8px;
+}
+.day-card-progress-fill {
+  height: 100%;
+  background: var(--info-tag);
+  border-radius: var(--radius-full);
+  transition: width 0.2s ease;
+}
+.day-card-restart {
+  margin-top: 6px !important;
+  padding: 0 !important;
+  height: auto !important;
+  font-size: 0.72rem !important;
+  color: var(--accent-coral) !important;
+}
+
+.day-card-sheet-btn {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  cursor: pointer;
+}
+.day-card-sheet-btn:hover {
+  background: var(--info-tag);
+  color: var(--bg-primary);
+}
+
+.admin-day-card {
+  cursor: default;
+}
+.admin-day-card:hover {
+  transform: none;
+}
+.admin-day-card-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   Admin — day questions editor
+   ========================================================= */
+
+.question-editor-list {
+  max-height: 55vh;
+  overflow-y: auto;
+  margin-top: var(--space-lg);
+  padding-right: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+.question-editor-row {
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.question-editor-row-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+.question-editor-row-num {
+  color: var(--text-secondary) !important;
+  font-weight: 700;
+  min-width: 24px;
+}
+.question-editor-options {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.question-editor-option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.question-editor-option-row .arco-input {
+  flex: 1;
+}
+.question-editor-actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+/* =========================================================
+   Activity row ("More to Explore")
+   ========================================================= */
+
+.activity-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-4xl);
+}
+@media (min-width: 700px) {
+  .activity-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.activity-card {
+  display: block;
+  text-align: left;
+  border: none;
+  padding: 0;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+.activity-card:hover {
+  transform: translateY(-3px);
+}
+.activity-card-static {
+  cursor: default;
+}
+.activity-card-static:hover {
+  transform: none;
+}
+.activity-card-art {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+.activity-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.activity-card-soon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+}
+.activity-card-footer {
+  padding: var(--space-lg);
+}
+.activity-card-title {
+  display: block;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary) !important;
+}
+.activity-card-sub {
+  display: block;
+  color: var(--text-secondary) !important;
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+.activity-card.activity-card {
+  width: 100%;
+}
+
+/* =========================================================
+   File preview (worksheets + fun-activity submissions)
+   ========================================================= */
+
+.file-preview {
+  margin-top: var(--space-lg);
+}
+.file-preview-img {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+.file-preview-audio {
+  width: 100%;
+}
+.file-preview-link {
+  color: var(--info-tag);
+  font-weight: 700;
+}
+.file-preview-text {
+  color: var(--text-primary) !important;
+  white-space: pre-wrap;
+}
+.file-preview-empty {
+  color: var(--text-secondary) !important;
+}
+
+/* =========================================================
+   Fun-activity upload modal
+   ========================================================= */
+
+.activity-modal-prompt {
+  display: block;
+  color: var(--text-secondary) !important;
+  margin-top: 4px;
+}
+.fun-win-banner {
+  background: linear-gradient(120deg, #14532d, #0f3d24);
+  border: 1px solid var(--success);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-2xl);
+  margin-bottom: var(--space-lg);
+  color: #ffffff;
+  font-weight: 600;
+}
+.activity-modal-locked {
+  margin-top: var(--space-md);
+  background: var(--bg-elevated);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md) var(--space-lg);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+.activity-modal-last,
+.activity-modal-pending {
+  margin-top: var(--space-lg);
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+}
+.activity-modal-last-label {
+  display: block;
+  color: var(--text-secondary) !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   Admin dashboard — fun activity submissions list
+   ========================================================= */
+
+.admin-submission-section {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-xl);
+  margin-bottom: var(--space-lg);
+}
+.admin-submission-section-title {
+  display: block;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary) !important;
+  margin-bottom: var(--space-md);
+}
+.admin-submission-empty {
+  color: var(--text-secondary) !important;
+  font-size: 0.85rem;
+}
+.admin-submission-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-sm) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.admin-submission-row:first-of-type {
+  border-top: none;
+}
+.admin-submission-user {
+  color: var(--text-primary) !important;
+  font-weight: 700;
+  min-width: 120px;
+}
+.admin-submission-time {
+  color: var(--text-secondary) !important;
+  font-size: 0.82rem;
+  flex: 1;
+}
+.admin-submission-view {
+  border: none;
+  background: transparent;
+  color: var(--info-tag);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+.admin-submission-view:hover {
+  text-decoration: underline;
+}
+.admin-submission-delete {
+  color: var(--accent-coral) !important;
+}
+.submission-modal-meta {
+  display: block;
+  color: var(--text-secondary) !important;
+  margin-top: 4px;
+}
+
+/* =========================================================
+   Footer + floating quest CTA
+   ========================================================= */
+
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  padding-bottom: var(--space-4xl);
+}
+.reset-link {
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+.reset-link:hover {
+  color: var(--accent-coral);
+}
+
+.brand-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+}
+.brand-logo {
+  height: 64px;
+  width: auto;
+  display: block;
+}
+
+.quest-float {
+  position: fixed;
+  bottom: var(--space-2xl);
+  right: var(--space-2xl);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  z-index: 20;
+}
+.quest-float-bubble {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 10px 16px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+.quest-float-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(243, 0, 191, 0.35);
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   Lesson ("New Concept") page shown before a day's test
+   ========================================================= */
+
+.lesson-page {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.lesson-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: var(--space-lg);
+}
+.lesson-back:hover {
+  color: var(--text-primary);
+}
+
+.lesson-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-2xl);
+  margin-bottom: var(--space-xl);
+  color: #14123f;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+}
+.lesson-banner-img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.lesson-banner-kicker {
+  display: block;
+  color: rgba(20, 18, 63, 0.75) !important;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.lesson-banner-title {
+  color: #14123f !important;
+  margin: 2px 0 0 !important;
+}
+
+.lesson-article {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-2xl);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+.lesson-paragraph {
+  line-height: 1.7;
+  color: var(--text-primary) !important;
+  margin: 0 !important;
+}
+
+.lesson-tip-label {
+  display: block;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--info-tag) !important;
+  margin-bottom: 4px;
+}
+.lesson-tip-text {
+  display: block;
+  color: var(--text-primary) !important;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.lesson-terms-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+@media (min-width: 520px) {
+  .lesson-terms-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.lesson-term-chip {
+  background: var(--bg-surface);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+}
+.lesson-term-name {
+  display: block;
+  color: var(--text-primary) !important;
+  font-size: 0.88rem;
+  margin-bottom: 2px;
+}
+.lesson-term-def {
+  display: block;
+  color: var(--text-secondary) !important;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+.lesson-tip-card {
+  background: var(--bg-elevated);
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  border-radius: var(--radius-sm);
+  padding: var(--space-lg);
+}
+
+.lesson-mistake {
+  background: rgba(255, 109, 77, 0.08);
+  border: 1px solid var(--accent-coral);
+  border-radius: var(--radius-sm);
+  padding: var(--space-lg);
+}
+.lesson-mistake-label {
+  color: var(--accent-coral) !important;
+}
+.lesson-mistake-sign {
+  display: inline-block;
+  background: var(--bg-surface);
+  border: 2px dashed var(--accent-coral);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md) var(--space-xl);
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: var(--space-sm) 0;
+}
+.lesson-mistake-reason {
+  color: var(--text-primary) !important;
+  margin: var(--space-sm) 0 0 !important;
+  line-height: 1.6;
+}
+
+.lesson-example {
+  padding: var(--space-lg);
+  border-radius: var(--radius-sm);
+  background: rgba(243, 0, 191, 0.08);
+  border-left: 4px solid var(--accent-pink);
+}
+
+/* =========================================================
+   Onboarding — "Setup Your Profile"
+   ========================================================= */
+
+.onboarding-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xl);
+  padding: var(--space-xl);
+  background-color: var(--bg-primary);
+  background-image: url('/images/onboarding-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.onboarding-logo {
+  position: relative;
+  z-index: 1;
+  height: 100px;
+  width: auto;
+}
+
+.onboarding-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border: 7px solid #3b2fa1;
+  border-radius: var(--radius-lg);
+  padding: var(--space-3xl) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xl);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+.onboarding-title {
+  margin: 0;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  color: #14123f;
+  text-align: center;
+}
+
+.onboarding-input.arco-input-inner-wrapper,
+.onboarding-input {
+  width: 100%;
+  background: var(--day-friday) !important;
+  border: none !important;
+  border-radius: var(--radius-sm) !important;
+  height: 52px;
+}
+input.onboarding-input {
+  color: #3a1f6e !important;
+  font-weight: 600;
+  text-align: center;
+}
+input.onboarding-input::placeholder {
+  color: #3a3a66 !important;
+  opacity: 1 !important;
+}
+
+.onboarding-upload {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: none;
+  background: var(--day-friday);
+  color: #14123f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.onboarding-upload:hover {
+  filter: brightness(0.96);
+}
+.onboarding-upload-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.onboarding-start-btn.arco-btn-primary {
+  background: #0b0940 !important;
+  border-color: #0b0940 !important;
+  color: #ffffff !important;
+  height: 52px;
+  border-radius: var(--radius-full) !important;
+  font-size: 1rem;
+}
+.onboarding-start-btn.arco-btn-primary:hover {
+  background: #14123f !important;
+}
+
+.profile-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   Math Quest — bonus logic puzzles
+   ========================================================= */
+
+.quest-intro {
+  color: var(--text-secondary) !important;
+  margin-bottom: var(--space-2xl) !important;
+}
+
+.quest-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-2xl);
+  margin-bottom: var(--space-lg);
+}
+.quest-card-title {
+  color: var(--text-primary) !important;
+  margin: 0 0 var(--space-md) !important;
+}
+.quest-card-type {
+  color: var(--text-secondary) !important;
+  font-weight: 400;
+  font-size: 0.85rem;
+}
+.quest-card-line {
+  color: var(--text-primary) !important;
+  line-height: 1.6;
+  margin-bottom: var(--space-sm) !important;
+}
+.quest-card-line strong {
+  color: var(--info-tag);
+}
+.quest-card-answer {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  flex-wrap: wrap;
+}
+.quest-card-feedback {
+  display: block;
+  margin-top: var(--space-md);
+  font-weight: 600;
+}
+.quest-card-feedback-success {
+  color: var(--success) !important;
+}
+.quest-card-feedback-error {
+  color: var(--accent-coral) !important;
+}
+
+/* =========================================================
+   Badge Collection
+   ========================================================= */
+
+.progress-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.progress-sticky-header {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(16px, 3vw, 40px) clamp(16px, 3vw, 40px) 0;
+}
+.progress-scroll-body {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-lg) clamp(16px, 3vw, 40px) var(--space-4xl);
+}
+
+.badge-collection-title {
+  color: var(--text-primary) !important;
+  margin: 0 0 6px !important;
+}
+.badge-collection-title-centered {
+  text-align: center;
+}
+.badge-collection-sub {
+  display: block;
+  color: var(--text-secondary) !important;
+  margin-bottom: var(--space-2xl);
+}
+.badge-collection-sub-centered {
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto var(--space-2xl);
+}
+
+.money-banner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  background: linear-gradient(120deg, #14532d, #0f3d24);
+  border: 1px solid var(--success);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-2xl);
+  margin-bottom: var(--space-3xl);
+}
+.money-banner-icon {
+  font-size: 2.4rem;
+}
+.money-banner-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.75) !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.money-banner-amount {
+  display: block;
+  color: var(--success) !important;
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.week-block {
+  margin-bottom: var(--space-3xl);
+}
+.week-label {
+  display: block;
+  color: var(--text-secondary) !important;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-md);
+}
+
+/* Always exactly one row of 8 (7 badges + the mystery box) — tracks have a
+   minimum width, so narrow viewports scroll horizontally instead of
+   wrapping to a second row. */
+.week-row {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(96px, 1fr));
+  gap: var(--space-md);
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.badge-collection-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  text-align: center;
+}
+.badge-collection-img {
+  width: 100%;
+  max-width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+.badge-collection-name {
+  font-family: 'Gabarito', sans-serif;
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+
+.mystery-box-card {
+  background: var(--bg-elevated);
+  border: 2px dashed rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg) var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-align: center;
+}
+.mystery-box-unlocked {
+  background: linear-gradient(160deg, #3a1f6e, #6c2a8f);
+  border: 2px solid var(--accent-pink);
+}
+.mystery-box-icon {
+  font-size: 2rem;
+}
+.mystery-box-label {
+  font-size: 0.72rem;
+  color: var(--text-secondary) !important;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.mystery-box-unlocked .mystery-box-label {
+  color: #ffffff !important;
+}
